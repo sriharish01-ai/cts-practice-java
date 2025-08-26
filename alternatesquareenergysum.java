@@ -1,20 +1,22 @@
 import java.util.*;
-public class bookshelfcal {
+public class alternatesquareenergysum {
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        int k=sc.nextInt();
         int[] arr=new int[n];
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-        int shelves=0;
-        int carry=0;
+        int total=0;
         for(int i=0;i<n;i++){
-            int total=arr[i]+carry;
-            shelves+=total/k;
-            carry=total%k;
+            int sum=arr[i]*arr[i];
+            if(i%2==0){
+                total+=sum;
+            }
+            else{
+                total-=sum;
+            }
         }
-        System.out.print(shelves);
+        System.out.print(total);
     }
 }
